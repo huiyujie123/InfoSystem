@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
+<c3p0-config>
+  <named-config name="eshopInfo">
+    <property name="driverClass">com.mysql.jdbc.Driver</property>
+    <property name="jdbcUrl">jdbc:mysql://192.168.80.20:3306/linux?characterEncoding=utf-8</property>
+    <property name="user">root</property>
+    <property name="password">123456</property>
+    
+    <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数 -->
+    <property name="acquireIncrement">8</property>
+    
+    <!--初始化时获取十个连接，取值应在minPoolSize与maxPoolSize之间 -->
+    <property name="initialPoolSize">10</property>
+    
+    <!--连接池中保留的最小连接数 -->
+    <property name="minPoolSize">3</property>
+    
+    <!--连接池中保留的最大连接数 -->
+    <property name="maxPoolSize">20</property>
+    
+    <!-- 当连接池连接耗尽时，客户端调用getConnection()后等待获取新连接的时间，单位:毫秒 -->
+    <property name="checkoutTimeout">90000</property>
+    
+    <!-- 表示从数据库中获取新连接失败后，重复尝试的次数 -->
+    <property name="acquireRetryAttempts">30</property>
+    
+    <!-- 开启7个线程 -->
+    <property name="numHelperThreads">7</property>
+    
+    <!-- 表示C3P0相邻两次获取连接的时间间隔:1000毫秒 -->
+    <property name="acquireRetryDelay">1000</property>
+    
+    <!-- 表示向连接池中放入连接时测试连接的有效性 -->
+    <property name="testConnectionOnCheckin">false</property>
+  </named-config>
+</c3p0-config>
